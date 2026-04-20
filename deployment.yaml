@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: api-python
+  namespace: production-python
 spec:
   replicas: 1
   selector:
@@ -46,6 +47,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: api-python-service
+  namespace: production-python
 spec:
   selector:
     app: api-python
