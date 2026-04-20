@@ -34,6 +34,9 @@ jobs:
         with:
           method: kubeconfig
           kubeconfig: ${{ secrets.K8S_CONFIG }}
+      - name: Garantir namespace production-python
+        run: |
+         kubectl get ns production-python || kubectl create ns production-python
       - name: Deploy do manifesto
         uses: Azure/k8s-deploy@v5.1.0
         with:
